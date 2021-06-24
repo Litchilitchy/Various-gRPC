@@ -1,0 +1,61 @@
+
+######## Inference Service
+
+# model path must be provided
+# modelPath: /home/yina/Documents/model/dien
+
+# default: 1, number of models used in inference service
+# modelParallelism: 3
+
+
+######## Feature Service
+
+### Basic setting
+# 'kv' or 'inference' default: kv
+#serviceType: inference
+
+# default: false, if need to load initial data to redis, set true
+loadInitialData: true
+
+# default: null, if loadInitialData=true, initialDataPath must be provided. Only support parquet
+# file
+initialDataPath: /home/yina/Documents/data/dien/all_data.parquet
+#initialDataPath: /home/yina/Documents/data/dien/dien_data/data
+
+# default: null, user model path or item model path must be provided if serviceType=inference. If
+# serviceType=kv, usermodelPath, itemModelPath and modelParallelism will be ignored
+userModelPath: /home/yina/Documents/model/2tower/new/user
+
+# default: null
+itemModelPath: /home/yina/Documents/model/2tower/new/item
+
+# default: 1, number of models used for inference
+# modelParallelism: 3
+
+### Redis Configuration
+# default: localhost:6379
+# redisUrl:
+
+# default: 4g
+# redisMaxmemory:
+
+# default: 5000
+# redisTimeout:
+
+# default: 256
+# redisPoolMaxTotal:
+
+
+
+######## Vector Search Service
+# default: false, if load saved index, set true
+# loadSavedIndex:
+
+# default: null, path to saved index path, must be provided if loadSavedIndex=true
+# indexPath:
+
+# user model path must be provided.?
+# userModelPath:
+
+# item model path must be provided.?
+# itemModelPath:

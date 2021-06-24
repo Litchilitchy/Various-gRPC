@@ -1,0 +1,38 @@
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.feature";
+option java_outer_classname = "FeatureProto";
+option objc_class_prefix = "RTG";
+
+package feature;
+
+// Interface exported by the server.
+service FeatureService {
+    rpc getUserFeatures(IDs) returns (Features) {}
+    rpc getItemFeatures(IDs) returns (Features) {}
+    rpc getMetrics(Empty) returns (ServerMessage) {}
+}
+
+message IDs {
+    repeated int32 ID = 1;
+}
+
+message Features {
+    repeated string b64Feature = 1;
+}
+
+message Empty {
+
+}
+
+message ServerMessage {
+    string str = 1;
+}
